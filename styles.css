@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.bg-container {
+  width: 100%;
+  height: 15rem;
+}
+
+.bg-img {
+  background-image: url("./images/bg-main-mobile.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.card-container {
+  position: relative;
+  width: 1px;
+  margin: auto;
+}
+
+.bg-card__back {
+  position: absolute;
+  top: 1.875rem;
+  left: -7.375rem;
+  background-image: url("./images/bg-card-back.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 18.159375rem;
+  height: 9.953125rem;
+}
+
+.bg-card__back > span {
+  position: absolute;
+  right: 2.375rem;
+  top: 4.4375rem;
+  color: white;
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.bg-card__front {
+  position: absolute;
+  top: 7.5rem;
+  left: -10.8125rem;
+  background-image: url("./images/bg-card-front.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 18.159375rem;
+  height: 9.953125rem;
+}
+
+.bg-card__front--number {
+  display: inline;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+@media only screen and (min-width: 725px) {
+  .container {
+    flex-direction: row;
+  }
+}
