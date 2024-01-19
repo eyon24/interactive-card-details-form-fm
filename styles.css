@@ -20,16 +20,19 @@ body {
 
 .container {
   display: flex;
+  height: 100vh;
+  width: 100%;
   flex-direction: column;
   align-items: center;
 }
 
 .bg-container {
   display: flex;
+  flex: 1;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 15rem;
+  max-height: 15rem;
   background-image: url("./images/bg-main-mobile.png");
   background-position: top center;
   background-repeat: no-repeat;
@@ -113,6 +116,90 @@ body {
   text-transform: uppercase;
 }
 
+.form-container {
+  flex: 1;
+  display: flex;
+  width: 100%;
+  padding: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.form-container > form {
+  width: 100%;
+}
+
+.form-container > form > ul {
+  margin: 0;
+  padding: 0;
+}
+
+.form-container > form > ul > li {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.form-container > form > ul > li > label {
+  margin-bottom: 10px;
+
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #21092f;
+}
+
+.form-container > form > ul > li > input {
+  height: 2.8125rem;
+  margin-bottom: 20px;
+  border: 1px solid #dedddf;
+  border-radius: 0.25rem;
+  outline: none;
+  padding-left: 1rem;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+.form-container > form > ul > li > input::placeholder {
+  color: #dedddf;
+}
+
+.form-container > form > ul > .date-cvc {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 25% 25% 50%;
+  grid-template-rows: auto 1fr;
+}
+
+.exp-lab {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+
+.exp-mm {
+  grid-column: 1;
+  grid-row: 2;
+  margin-right: 8px;
+}
+
+.exp-yy {
+  grid-column: 2;
+  grid-row: 2;
+  margin-right: 8px;
+}
+
+.cvc-lab {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.cvc-inp {
+  grid-row: 2;
+  grid-column: 3;
+  /* margin-right: 1.5rem; */
+}
+
 @media only screen and (min-width: 725px) {
   .container {
     flex-direction: row;
@@ -120,7 +207,7 @@ body {
   }
 
   .bg-container {
-    height: 100vh;
+    min-height: 100vh;
     max-width: 30rem;
   }
 
@@ -167,5 +254,9 @@ body {
   .bg-card__back {
     top: 1.375rem;
     left: 0.5625rem;
+  }
+
+  .form-container > form {
+    max-width: 385px;
   }
 }
