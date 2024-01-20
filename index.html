@@ -58,8 +58,8 @@
                 id="cardNumber"
                 class="inp"
                 type="text"
-                placeholder="e.g. 1234 5678 9123 0000"
-                maxlength="19"
+                placeholder="e.g. 1234567891230000"
+                maxlength="16"
               />
               <small class="error"></small>
             </li>
@@ -87,14 +87,16 @@
                 <small class="error"></small>
               </div>
               <label class="cvc-lab">CVC</label>
-              <input
-                name="cvc"
-                id="cvc"
-                class="inp"
-                placeholder="CVC"
-                maxlength="3"
-              />
-              <small class="error"></small>
+              <div id="cvc-container">
+                <input
+                  name="cvc"
+                  id="cvc"
+                  class="inp"
+                  placeholder="CVC"
+                  maxlength="3"
+                />
+                <small class="error"></small>
+              </div>
             </li>
           </ul>
 

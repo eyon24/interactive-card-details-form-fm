@@ -18,7 +18,9 @@ form.elements["cardNumber"].addEventListener("keyup", function (e) {
     document.getElementById("card-cardNumber").textContent =
       "0000 0000 0000 0000";
   } else {
-    document.getElementById("card-cardNumber").textContent = e.target.value;
+    const formatted = e.target.value.match(/.{1,4}/g);
+    document.getElementById("card-cardNumber").textContent =
+      formatted.join(" ");
   }
 });
 
@@ -68,6 +70,7 @@ const validate = () => {
   var yyValue = yy.value;
   var cvcValue = cvc.value;
   var regExp = new RegExp(/[a-zA-Z]/g);
+  var regExpCard = new RegExp();
 
   // Validate Name
   if (nameValue === "" || nameValue === null) {
@@ -87,9 +90,7 @@ const validate = () => {
     setSuccess(cardNumber);
   }
 
-  //Validate MM and YY
-  console.log(mmValue);
-
+  //Validate MM and YY and CVC
   if (mmValue === "") {
     setError(mm, "Can't Be Blank");
   } else if (mmValue.length < 2) {
@@ -115,8 +116,10 @@ const validate = () => {
   }
 
   if (cvcValue === "") {
-    setError(cvc, "Can't Be Blank");
-  } else if (regExp.test(yyValue)) {
+    setError(cv, "Can't Be Blank");
+  } else if (cvcValue.length < 3) {
+    setError(cvc, "Wrong Format");
+  } else if (regExp.test(cvcValue)) {
     setError(cvc, "Numbers Only");
   } else {
     setSuccess(cvc);
