@@ -11,6 +11,7 @@
       sizes="32x32"
       href="./images/icon-complete.svg"
     />
+    <link rel="stylesheet" href="styles.css" />
 
     <title>Interactive card details form</title>
   </head>
@@ -26,33 +27,51 @@
             <div class="bg-card__front--number">
               <h2>0000 0000 0000 0000</h2>
               <div class="bg-card__front--info">
-                <span class="name">John Appleseed</span>
-                <span>00/00</span>
+                <span id="name">John Appleseed</span>
+                <div class="exp">
+                  <span id="mm">00</span>/<span id="yy">00</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="form-container">
-        <form>
-          <ul>
+        <form class="form">
+          <ul class="">
             <li>
               <label>Cardholder Name</label>
-              <input type="text" placeholder="e.g Jane Appleseed" />
+              <input
+                name="nameInput"
+                type="text"
+                placeholder="e.g Jane Appleseed"
+              />
             </li>
             <li>
               <label>Card Number</label>
-              <input type="text" placeholder="e.g. 1234 5678 9123 0000" />
+              <input
+                class="cardNumber"
+                type="text"
+                placeholder="e.g. 1234 5678 9123 0000"
+              />
             </li>
+            <small></small>
             <li class="date-cvc">
               <label class="exp-lab">Exp. Date (MM/YY)</label>
-              <input class="exp-mm" placeholder="MM" />
-              <input class="exp-yy" placeholder="YY" />
+              <input class="exp-mm" placeholder="MM" required />
+              <input class="exp-yy" placeholder="YY" required />
               <label class="cvc-lab">CVC</label>
-              <input class="cvc-inp" placeholder="CVC" />
+              <input class="cvc-inp" placeholder="CVC" required />
             </li>
-            <button type="submit">Confirm</button>
           </ul>
+
+          <div class="hide">
+            <img src="./images/icon-complete.svg" alt="" />
+            <h1>Thank You!</h1>
+            <p>We've added your card details.</p>
+          </div>
+          <button class="confirm" type="submit">Confirm</button>
+          <button class="continue hide" type="submit">Continue</button>
         </form>
       </div>
     </main>
@@ -60,6 +79,6 @@
     <!-- Completed state start -->
     <!-- 
     Thank you! We've added your card details Continue -->
-    <link rel="stylesheet" href="styles.css" />
+    <script src="myScript.js"></script>
   </body>
 </html>

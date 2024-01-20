@@ -143,7 +143,6 @@ body {
 
 .form-container > form > ul > li > label {
   margin-bottom: 10px;
-
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -154,7 +153,7 @@ body {
   height: 2.8125rem;
   margin-bottom: 20px;
   border: 1px solid #dedddf;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   outline: none;
   padding-left: 1rem;
   font-size: 17px;
@@ -198,6 +197,48 @@ body {
   grid-row: 2;
   grid-column: 3;
   /* margin-right: 1.5rem; */
+}
+
+.hide {
+  display: none;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.confirmation > img {
+  margin-bottom: 40px;
+}
+
+.confirmation > h1 {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: #21092f;
+}
+
+.confirmation > p {
+  margin-bottom: 42px;
+  color: #8e8593;
+}
+
+button {
+  border: none;
+  width: 100%;
+  height: 2.8125rem;
+  margin-top: 8px;
+  border-radius: 0.5rem;
+  color: white;
+  background-color: #21092f;
 }
 
 @media only screen and (min-width: 725px) {
@@ -257,6 +298,7 @@ body {
   }
 
   .form-container > form {
-    max-width: 385px;
+    margin-left: 20%;
+    max-width: 380px;
   }
 }
