@@ -82,7 +82,7 @@ const validate = () => {
   // Validate Card Number
   if (cardNumberValue === "" || cardNumberValue === null) {
     setError(cardNumber, "Please Enter a Card Number");
-  } else if (cardNumberValue.length < 19) {
+  } else if (cardNumberValue.length < 16) {
     setError(cardNumber, "Incorrect Card Number");
   } else if (regExp.test(cardNumberValue)) {
     setError(cardNumber, "Wrong Format, Numbers Only");
@@ -97,7 +97,7 @@ const validate = () => {
     setError(mm, "Wrong Format");
   } else if (regExp.test(mmValue)) {
     setError(mm, "Numbers Only");
-  } else if (parseInt(mmValue) > 31 || parseInt(mmValue) < 1) {
+  } else if (parseInt(mmValue) > 12 || parseInt(mmValue) < 1) {
     setError(mm, "Check Date");
   } else {
     setSuccess(mm);
@@ -109,14 +109,14 @@ const validate = () => {
     setError(yy, "Wrong Format");
   } else if (regExp.test(yyValue)) {
     setError(yy, "Numbers Only");
-  } else if (parseInt(yyValue) > 12 || parseInt(yyValue) < 1) {
+  } else if (parseInt(yyValue) < 1) {
     setError(yy, "Check Date");
   } else {
     setSuccess(yy);
   }
 
   if (cvcValue === "") {
-    setError(cv, "Can't Be Blank");
+    setError(cvc, "Can't Be Blank");
   } else if (cvcValue.length < 3) {
     setError(cvc, "Wrong Format");
   } else if (regExp.test(cvcValue)) {

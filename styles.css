@@ -206,6 +206,10 @@ body {
   grid-column: 3;
 }
 
+#cvc {
+  width: 100%;
+}
+
 .error {
   color: #ff5252;
 }
