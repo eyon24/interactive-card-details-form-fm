@@ -20,16 +20,16 @@
       <div class="bg-container">
         <div class="card-container">
           <div class="bg-card__back">
-            <span id="cvc">000</span>
+            <span id="card-cvc">000</span>
           </div>
           <div class="bg-card__front">
             <img src="images/card-logo.svg" alt="" />
             <div class="bg-card__front--number">
-              <h2 id="cardNumber">0000 0000 0000 0000</h2>
+              <h2 id="card-cardNumber">0000 0000 0000 0000</h2>
               <div class="bg-card__front--info">
-                <span id="name">John Appleseed</span>
+                <span id="card-name">John Appleseed</span>
                 <div class="exp">
-                  <span id="mm">00</span>/<span id="yy">00</span>
+                  <span id="card-mm">00</span>/<span id="card-yy">00</span>
                 </div>
               </div>
             </div>
@@ -42,53 +42,59 @@
             <li>
               <label>Cardholder Name</label>
               <input
-                name="nameInput"
-                class="name_input"
+                name="cardName"
+                id="cardName"
+                class="inp"
                 type="text"
                 placeholder="e.g Jane Appleseed"
                 maxlength="20"
               />
-              <small id="n-error error"></small>
+              <small class="error"></small>
             </li>
             <li>
               <label>Card Number</label>
               <input
                 name="cardNumber"
-                class="card_input"
+                id="cardNumber"
+                class="inp"
                 type="text"
                 placeholder="e.g. 1234 5678 9123 0000"
                 maxlength="16"
               />
             </li>
-            <small id="cn-error error"></small>
+            <small class="error"></small>
 
             <li class="date-cvc">
               <label class="exp-lab">Exp. Date (MM/YY)</label>
-              <input
-                name="exp-mm"
-                class="exp-mm"
-                placeholder="MM"
-                maxlength="2"
-                required
-              />
-              <small id="mm-error error"></small>
-              <input
-                name="exp-yy"
-                class="exp-yy"
-                placeholder="YY"
-                maxlength="2"
-                required
-              />
-              <small id="yy-error error"></small>
+              <div id="mm-container">
+                <input
+                  name="mm"
+                  id="mm"
+                  class="inp"
+                  placeholder="MM"
+                  maxlength="2"
+                />
+                <small id="mm-error error"></small>
+              </div>
+              <div id="yy-container">
+                <input
+                  name="yy"
+                  id="yy"
+                  class="inp"
+                  placeholder="YY"
+                  maxlength="2"
+                />
+                <small id="yy-error error"></small>
+              </div>
               <label class="cvc-lab">CVC</label>
               <input
-                name="cvc-inp"
-                class="cvc-inp"
+                name="cvc"
+                id="cvc"
+                class="inp"
                 placeholder="CVC"
                 maxlength="3"
-                required
               />
-              <small id="cvc-error error"></small>
+              <small class="error"></small>
             </li>
           </ul>
 

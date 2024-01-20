@@ -149,7 +149,7 @@ body {
   color: #21092f;
 }
 
-.form-container > form > ul > li > input {
+.inp {
   height: 2.8125rem;
   margin-bottom: 20px;
   border: 1px solid #8e8593;
@@ -160,7 +160,7 @@ body {
   letter-spacing: 1px;
 }
 
-.form-container > form > ul > li > input::placeholder {
+.inp::placeholder {
   color: #8e8593;
 }
 
@@ -176,16 +176,24 @@ body {
   grid-row: 1;
 }
 
-.exp-mm {
+#mm-container {
   grid-column: 1;
   grid-row: 2;
   margin-right: 8px;
 }
 
-.exp-yy {
+#mm {
+  width: 100%;
+}
+
+#yy-container {
   grid-column: 2;
   grid-row: 2;
   margin-right: 8px;
+}
+
+#yy {
+  width: 100%;
 }
 
 .cvc-lab {
@@ -193,7 +201,7 @@ body {
   grid-row: 1;
 }
 
-.cvc-inp {
+#cvc {
   grid-row: 2;
   grid-column: 3;
 }

@@ -1,58 +1,49 @@
 const form = document.getElementById("form");
-const name_input = document.querySelector(".name_input");
-const name_error = document.getElementById("n-error");
-const card_input = document.querySelector(".card_input");
-const card_error = document.getElementById("cn-error");
-const mm_input = document.querySelector(".exp-mm");
-const mm_error = document.getElementById("mm-error");
-const yy_input = document.querySelector(".exp-yy");
-const yy_error = document.getElementById("yy-error");
-const cvc_input = document.querySelector(".cvc-inp");
-const cvc_error = document.getElementById("cvc-error");
+const cardName = document.getElementById("cardName");
+const cardNumber = document.getElementById("cardNumber");
+const mm = document.getElementById("mm");
+const yy = document.getElementById("yy");
+const cvc = document.getElementById("cvc");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  validate();
-});
-
-form.elements["nameInput"].addEventListener("keyup", function (e) {
+form.elements["cardName"].addEventListener("keyup", function (e) {
   if (e.target.value === "") {
-    document.getElementById("name").textContent = "John Appleseed";
+    document.getElementById("card-name").textContent = "John Appleseed";
   } else {
-    document.getElementById("name").textContent = e.target.value;
+    document.getElementById("card-name").textContent = e.target.value;
   }
 });
 
 form.elements["cardNumber"].addEventListener("keyup", function (e) {
   if (e.target.value === "") {
-    document.getElementById("cardNumber").textContent = "0000 0000 0000 0000";
+    document.getElementById("card-cardNumber").textContent =
+      "0000 0000 0000 0000";
   } else {
     const formattedValue = cc_format(e.target.value);
-    document.getElementById("cardNumber").textContent = formattedValue;
+    document.getElementById("card-cardNumber").textContent = formattedValue;
   }
 });
 
-form.elements["exp-mm"].addEventListener("keyup", function (e) {
+form.elements["mm"].addEventListener("keyup", function (e) {
   if (e.target.value === "") {
-    document.getElementById("mm").textContent = "00";
+    document.getElementById("card-mm").textContent = "00";
   } else {
-    document.getElementById("mm").textContent = e.target.value;
+    document.getElementById("card-mm").textContent = e.target.value;
   }
 });
 
-form.elements["exp-yy"].addEventListener("keyup", function (e) {
+form.elements["yy"].addEventListener("keyup", function (e) {
   if (e.target.value === "") {
-    document.getElementById("yy").textContent = "00";
+    document.getElementById("card-yy").textContent = "00";
   } else {
-    document.getElementById("yy").textContent = e.target.value;
+    document.getElementById("card-yy").textContent = e.target.value;
   }
 });
 
-form.elements["cvc-inp"].addEventListener("keyup", function (e) {
+form.elements["cvc"].addEventListener("keyup", function (e) {
   if (e.target.value === "") {
-    document.getElementById("cvc").textContent = "000";
+    document.getElementById("card-cvc").textContent = "000";
   } else {
-    document.getElementById("cvc").textContent = e.target.value;
+    document.getElementById("card-cvc").textContent = e.target.value;
   }
 });
 
@@ -78,10 +69,31 @@ function cc_format(value) {
   }
 }
 
-function validate() {
-  // console.log(document.myForm.name.value);
-  if (document.myForm.nameInput.value === "") {
-    console.log("here");
-    name_error.textContent = "Please Enter Your Name";
+const setError = (element, message) => {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector(".error");
+
+  errorDisplay.innerText = message;
+};
+
+const validate = () => {
+  const nameValue = cardName.value;
+  const cardNumberValue = cardNumber.value;
+  //   const mm = cardNumber.value;
+  //   const yy = cardNumber.value;
+  //   const cvc = cardNumber.value;
+
+  if (nameValue === "" || nameValue === null) {
+    setError(cardName, "Please Enter a Name.");
   }
-}
+
+  if (cardNumberValue.contains("[a-z,A-Z]")) {
+  }
+
+  return;
+};
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  validate();
+});
