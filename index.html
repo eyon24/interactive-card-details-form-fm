@@ -20,12 +20,12 @@
       <div class="bg-container">
         <div class="card-container">
           <div class="bg-card__back">
-            <span>000</span>
+            <span id="cvc">000</span>
           </div>
           <div class="bg-card__front">
             <img src="images/card-logo.svg" alt="" />
             <div class="bg-card__front--number">
-              <h2>0000 0000 0000 0000</h2>
+              <h2 id="cardNumber">0000 0000 0000 0000</h2>
               <div class="bg-card__front--info">
                 <span id="name">John Appleseed</span>
                 <div class="exp">
@@ -37,31 +37,58 @@
         </div>
       </div>
       <div class="form-container">
-        <form class="form">
-          <ul class="">
+        <form action="" id="form" name="myForm">
+          <ul id="info-component">
             <li>
               <label>Cardholder Name</label>
               <input
                 name="nameInput"
+                class="name_input"
                 type="text"
                 placeholder="e.g Jane Appleseed"
+                maxlength="20"
               />
+              <small id="n-error error"></small>
             </li>
             <li>
               <label>Card Number</label>
               <input
-                class="cardNumber"
+                name="cardNumber"
+                class="card_input"
                 type="text"
                 placeholder="e.g. 1234 5678 9123 0000"
+                maxlength="16"
               />
             </li>
-            <small></small>
+            <small id="cn-error error"></small>
+
             <li class="date-cvc">
               <label class="exp-lab">Exp. Date (MM/YY)</label>
-              <input class="exp-mm" placeholder="MM" required />
-              <input class="exp-yy" placeholder="YY" required />
+              <input
+                name="exp-mm"
+                class="exp-mm"
+                placeholder="MM"
+                maxlength="2"
+                required
+              />
+              <small id="mm-error error"></small>
+              <input
+                name="exp-yy"
+                class="exp-yy"
+                placeholder="YY"
+                maxlength="2"
+                required
+              />
+              <small id="yy-error error"></small>
               <label class="cvc-lab">CVC</label>
-              <input class="cvc-inp" placeholder="CVC" required />
+              <input
+                name="cvc-inp"
+                class="cvc-inp"
+                placeholder="CVC"
+                maxlength="3"
+                required
+              />
+              <small id="cvc-error error"></small>
             </li>
           </ul>
 
@@ -70,6 +97,7 @@
             <h1>Thank You!</h1>
             <p>We've added your card details.</p>
           </div>
+
           <button class="confirm" type="submit">Confirm</button>
           <button class="continue hide" type="submit">Continue</button>
         </form>
