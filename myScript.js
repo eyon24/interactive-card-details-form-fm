@@ -18,8 +18,7 @@ form.elements["cardNumber"].addEventListener("keyup", function (e) {
     document.getElementById("card-cardNumber").textContent =
       "0000 0000 0000 0000";
   } else {
-    const formattedValue = cc_format(e.target.value);
-    document.getElementById("card-cardNumber").textContent = formattedValue;
+    document.getElementById("card-cardNumber").textContent = e.target.value;
   }
 });
 
@@ -47,27 +46,13 @@ form.elements["cvc"].addEventListener("keyup", function (e) {
   }
 });
 
-function validateCC(CC) {
-  const regex = new RegExp("[0-9]{16}");
-  return regex.test(CC);
-}
+const setSuccess = (element) => {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector(".error");
 
-function cc_format(value) {
-  var v = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
-  var matches = v.match(/\d{4,16}/g);
-  var match = (matches && matches[0]) || "";
-  var parts = [];
-
-  for (i = 0, len = match.length; i < len; i += 4) {
-    parts.push(match.substring(i, i + 4));
-  }
-
-  if (parts.length) {
-    return parts.join(" ");
-  } else {
-    return value;
-  }
-}
+  errorDisplay.innerText = "";
+  inputControl.classList.remove("error");
+};
 
 const setError = (element, message) => {
   const inputControl = element.parentElement;
@@ -77,17 +62,64 @@ const setError = (element, message) => {
 };
 
 const validate = () => {
-  const nameValue = cardName.value;
-  const cardNumberValue = cardNumber.value;
-  //   const mm = cardNumber.value;
-  //   const yy = cardNumber.value;
-  //   const cvc = cardNumber.value;
+  var nameValue = cardName.value;
+  var cardNumberValue = cardNumber.value;
+  var mmValue = mm.value;
+  var yyValue = yy.value;
+  var cvcValue = cvc.value;
+  var regExp = new RegExp(/[a-zA-Z]/g);
 
+  // Validate Name
   if (nameValue === "" || nameValue === null) {
-    setError(cardName, "Please Enter a Name.");
+    setError(cardName, "Please Enter a Name");
+  } else {
+    setSuccess(cardName);
   }
 
-  if (cardNumberValue.contains("[a-z,A-Z]")) {
+  // Validate Card Number
+  if (cardNumberValue === "" || cardNumberValue === null) {
+    setError(cardNumber, "Please Enter a Card Number");
+  } else if (cardNumberValue.length < 19) {
+    setError(cardNumber, "Incorrect Card Number");
+  } else if (regExp.test(cardNumberValue)) {
+    setError(cardNumber, "Wrong Format, Numbers Only");
+  } else {
+    setSuccess(cardNumber);
+  }
+
+  //Validate MM and YY
+  console.log(mmValue);
+
+  if (mmValue === "") {
+    setError(mm, "Can't Be Blank");
+  } else if (mmValue.length < 2) {
+    setError(mm, "Wrong Format");
+  } else if (regExp.test(mmValue)) {
+    setError(mm, "Numbers Only");
+  } else if (parseInt(mmValue) > 31 || parseInt(mmValue) < 1) {
+    setError(mm, "Check Date");
+  } else {
+    setSuccess(mm);
+  }
+
+  if (yyValue === "") {
+    setError(yy, "Can't Be Blank");
+  } else if (yyValue.length < 2) {
+    setError(yy, "Wrong Format");
+  } else if (regExp.test(yyValue)) {
+    setError(yy, "Numbers Only");
+  } else if (parseInt(yyValue) > 12 || parseInt(yyValue) < 1) {
+    setError(yy, "Check Date");
+  } else {
+    setSuccess(yy);
+  }
+
+  if (cvcValue === "") {
+    setError(cvc, "Can't Be Blank");
+  } else if (regExp.test(yyValue)) {
+    setError(cvc, "Numbers Only");
+  } else {
+    setSuccess(cvc);
   }
 
   return;
