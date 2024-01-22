@@ -120,6 +120,7 @@ body {
   flex: 1;
   display: flex;
   width: 100%;
+  max-width: 485px;
   padding: 1.5rem;
   justify-content: center;
   align-items: center;
@@ -152,7 +153,7 @@ body {
 .inp {
   height: 2.8125rem;
   margin-bottom: 20px;
-  border: 1px solid #8e8593;
+  border: 1px solid #8e859356;
   border-radius: 0.5rem;
   outline: none;
   padding-left: 1rem;
@@ -211,6 +212,8 @@ body {
 }
 
 .error {
+  position: relative;
+  top: -0.875rem;
   color: #ff5252;
 }
 
@@ -224,39 +227,40 @@ p {
 }
 
 .confirmation {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
 }
 
 .confirmation > img {
-  margin-bottom: 40px;
+  margin-bottom: 1.875rem;
 }
 
 .confirmation > h1 {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
+  font-weight: normal;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: #21092f;
 }
 
 .confirmation > p {
-  margin-bottom: 42px;
+  margin-bottom: 2.625rem;
   color: #8e8593;
 }
 
 button {
   border: none;
   width: 100%;
-  height: 2.8125rem;
+  height: 3.25rem;
   margin-top: 8px;
   border-radius: 0.5rem;
   color: white;
   background-color: #21092f;
+  font-family: inherit;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
 }
 
-@media only screen and (min-width: 725px) {
+@media only screen and (min-width: 1180px) {
   .container {
     flex-direction: row;
     justify-content: space-between;
@@ -312,8 +316,15 @@ button {
     left: 0.5625rem;
   }
 
-  .form-container > form {
+  .form-container {
+    /* margin-left: 20%; */
+    margin-right: auto;
     margin-left: 20%;
-    max-width: 380px;
+    max-width: 450px;
+  }
+
+  input:hover,
+  button:hover {
+    cursor: pointer;
   }
 }
