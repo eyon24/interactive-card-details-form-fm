@@ -151,6 +151,7 @@ body {
 }
 
 .inp {
+  position: relative;
   height: 2.8125rem;
   margin-bottom: 20px;
   border: 1px solid #8e859356;
@@ -159,6 +160,17 @@ body {
   padding-left: 1rem;
   font-size: 17px;
   letter-spacing: 1px;
+}
+
+.inp:focus {
+  outline: none;
+  height: 2.8125rem;
+  border: double 1px transparent;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(white, white),
+    radial-gradient(circle at top left, #6448fe, #600594);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
 }
 
 .inp::placeholder {
@@ -215,6 +227,11 @@ body {
   position: relative;
   top: -0.875rem;
   color: #ff5252;
+  font-size: 10px;
+}
+
+.error-input {
+  border: 1px solid #ff5252;
 }
 
 .hide {
@@ -326,5 +343,9 @@ button {
   input:hover,
   button:hover {
     cursor: pointer;
+  }
+
+  .error {
+    font-size: 18px;
   }
 }

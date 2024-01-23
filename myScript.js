@@ -55,6 +55,7 @@ form.elements["cvc"].addEventListener("keyup", function (e) {
 const setSuccess = (element) => {
   const inputControl = element.parentElement;
   const errorDisplay = inputControl.querySelector(".error");
+  element.classList.remove("error-input");
 
   errorDisplay.innerText = "";
   inputControl.classList.remove("error");
@@ -64,6 +65,7 @@ const setError = (element, message) => {
   const inputControl = element.parentElement;
   const errorDisplay = inputControl.querySelector(".error");
 
+  element.classList.add("error-input");
   errorDisplay.innerText = message;
 };
 
