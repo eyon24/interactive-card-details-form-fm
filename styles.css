@@ -98,11 +98,12 @@ body {
   bottom: 0;
 }
 
-.bg-card__front--number h2 {
+.bg-card__front--number h1 {
   margin: auto;
   margin-top: 1.9375rem;
   letter-spacing: 3px;
   font-weight: 500;
+  font-size: 18px;
 }
 
 .bg-card__front--info {
@@ -315,7 +316,7 @@ button {
     margin-top: 25px;
   }
 
-  .bg-card__front--number h2 {
+  .bg-card__front--number h1 {
     font-size: 1.875rem;
     letter-spacing: 0.1875rem;
   }
